@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Page Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to our Dynamic Web Page!</h1>
+    
+    <form id="nameForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="greeting"></div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the value of the input field
+            var name = document.getElementById("name").value;
+
+            // Display personalized greeting message
+            var greetingDiv = document.getElementById("greeting");
+            greetingDiv.innerHTML = "<p>Hello, " + name + "!</p>";
+        });
+    </script>
+</body>
+</html>
